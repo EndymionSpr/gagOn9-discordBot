@@ -15,7 +15,13 @@ client.on('messageCreate', (message) => {
         message.reply({
             content: correctMessage,
         })
+    } else if (Message.includes('HumansNoContext') && Message.includes('twitter')) {
+        const correctMessage = Message.replace("HumansNoContext", "i");
+        message.reply({
+            content: correctMessage,
+        })
     }
+    
 })
 
 client.login(process.env.DISCORD_TOKEN)
