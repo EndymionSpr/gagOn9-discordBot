@@ -15,8 +15,8 @@ client.on('messageCreate', (message) => {
         message.reply({
             content: correctMessage,
         })
-    } else if (Message.includes('HumansNoContext') && Message.includes('twitter')) {
-        const correctMessage = Message.replace("HumansNoContext", "i");
+    } else if (Message.includes('\/twitter.com\/') && Message.includes('\/status\/')) {
+        const correctMessage = Message.replace("twitter.com", "fxtwitter.com");
         message.reply({
             content: correctMessage,
         })
