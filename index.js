@@ -1,6 +1,10 @@
 require('dotenv').config()
 const { Client, Intents } = require('discord.js')
+var http = require('http')
+
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+
+
 
 client.on('ready', () => {
     console.log(`logged in as ${client.user.tag}!`)
@@ -20,6 +24,17 @@ client.on('messageCreate', (message) => {
         message.reply({
             content: correctMessage,
         })
+    } else if (Message=="server.info") {
+
+        http.get({'host': 'api.ipify.org', 'port': 80, 'path': '/'}, function(resp) {
+            resp.on('data', function(ip) {
+                const correctMessage = ip.toString() + "\n" + "Server name: potatoField \nServer password: Qweqweqwe";
+                message.reply({
+                    content: correctMessage,
+                });
+            });
+          });
+        
     }
     
 })
