@@ -28,7 +28,7 @@ client.on('messageCreate', (message) => {
 
         http.get({'host': 'api.ipify.org', 'port': 80, 'path': '/'}, function(resp) {
             resp.on('data', function(ip) {
-                const correctMessage = ip.toString() + "\n" + "Server name: potatoField \nServer password: Qweqweqwe";
+                const correctMessage = ip.toString();
                 message.reply({
                     content: correctMessage,
                 });
